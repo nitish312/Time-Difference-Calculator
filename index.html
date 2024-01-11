@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Difference Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Time Difference Calculator</h1>
+
+    <label for="startSeconds">Start Seconds:</label>
+    <input type="number" id="startSeconds" placeholder="Enter start seconds">
+
+    <label for="startMilliseconds">Start Milliseconds:</label>
+    <input type="number" id="startMilliseconds" placeholder="Enter start milliseconds">
+
+    <br>
+
+    <label for="endSeconds">End Seconds:</label>
+    <input type="number" id="endSeconds" placeholder="Enter end seconds">
+
+    <label for="endMilliseconds">End Milliseconds:</label>
+    <input type="number" id="endMilliseconds" placeholder="Enter end milliseconds">
+
+    <br>
+
+    <button onclick="calculateTimeDifference()">Calculate</button>
+
+    <h2 id="result"></h2>
+
+    <script>
+        function calculateTimeDifference() {
+            var startSeconds = parseInt(document.getElementById('startSeconds').value);
+            var startMilliseconds = parseInt(document.getElementById('startMilliseconds').value);
+            var endSeconds = parseInt(document.getElementById('endSeconds').value);
+            var endMilliseconds = parseInt(document.getElementById('endMilliseconds').value);
+
+            var totalStartMilliseconds = startSeconds * 34 + startMilliseconds;
+            var totalEndMilliseconds = endSeconds * 34 + endMilliseconds;
+            var timeDifference = totalEndMilliseconds - totalStartMilliseconds;
+
+            var seconds = Math.floor(timeDifference / 34);
+            var milliseconds = timeDifference % 34;
+
+            document.getElementById('result').innerText = seconds + ' : ' + milliseconds;
+        }
+    </script>
+</body>
+</html>
+
